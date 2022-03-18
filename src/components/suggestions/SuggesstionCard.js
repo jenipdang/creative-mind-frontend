@@ -1,10 +1,7 @@
 import '../css/Suggestion.css';
 
-
-
 const SuggesstionCard = ({ suggestion }) => {
-
-  const { id, title, name, created_at, description } = suggestion
+	const { id, title, name, created_at, description } = suggestion;
 
 	return (
 		<div className='container'>
@@ -14,9 +11,7 @@ const SuggesstionCard = ({ suggestion }) => {
 					{created_at} by {name}
 				</p>
 
-				<p>
-					{description}
-				</p>
+				<p>{description}</p>
 			</article>
 		</div>
 	);

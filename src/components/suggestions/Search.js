@@ -8,14 +8,14 @@ function Search({ term, searchKeyword }) {
   }
 
   return (
-    <form className="d-flex w-50 mt-2">
+    <form className="d-flex w-80 mt-2">
       <input
         className="form-control me-2"
         aria-label="Search"
         type="search"
         ref={inputEl}
         value={term}
-        placeholder="Product Search"
+        placeholder="Search"
         onChange={getSearchTerm}
       />
     </form>
