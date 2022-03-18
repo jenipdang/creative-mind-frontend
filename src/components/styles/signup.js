@@ -38,8 +38,9 @@ const Agreement = styled.span`
 `;
 
 const Button = styled.button`
-	width: 40%;
+	width: 100%;
 	border: none;
+	border-radius: 25px;
 	padding: 15px 20px;
 	background: linear-gradient(to right, #00b4db, #0083b0);
 	color: white;

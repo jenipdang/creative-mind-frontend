@@ -10,6 +10,7 @@ import {
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useGlobalContext } from '../data/context';
+import { Grid, Paper } from '@mui/material'
 
 const SignIn = () => {
 	const { setUser } = useGlobalContext;
@@ -61,6 +62,7 @@ const SignIn = () => {
 		})
 	};
 
+	const paperStyle={padding: 20, height: '73vh', width: 300, margin: "0, auto"}
 	return (
 		<Container>
 			<Wrapper>
@@ -83,7 +85,7 @@ const SignIn = () => {
 					<Button
 						type='submit'
 					>
-						LOGIN
+						SIGN IN
 					</Button>
 					<Link>FORGOT YOUR PASSWORD?</Link>
 					<Link href='/account/signup'>CREATE A NEW ACCOUNT</Link>

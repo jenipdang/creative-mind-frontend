@@ -32,8 +32,8 @@ const SignUp = () => {
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(newUser),
 		})
-			.catch((err) => {
-				console.err('ERROR:', err);
+			.catch((error) => {
+				console.err('Registration error', error);
 			});
 		setName('');
 		setCity('');
@@ -41,7 +41,7 @@ const SignUp = () => {
 		setUsername('');
 		setEmail('');
 		setPassword('');
-		history('/account/profile')
+		history.push('/account/profile')
 
 	};
 
@@ -103,7 +103,7 @@ const SignUp = () => {
 						data in accordance with the <b>PRIVACY POLICY</b>
 					</Agreement>
 					<Button type='submit' value= "New User">
-						CREATE
+						CREATE ACCOUNT
 					</Button>
 				</Form>
 			</Wrapper>

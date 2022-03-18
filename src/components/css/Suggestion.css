@@ -82,22 +82,17 @@
     margin-bottom: .25rem;
     font-size: 2.5rem;
   }
+  .blog-post-title a{
+    text-decoration: none;
+    color: black
+  }
+  .blog-post-title a:hover{
+    color: #0083b0;
+  }
   .blog-post-meta {
     margin-bottom: 1.25rem;
     color: #727272;
   }
   
-  /*
-   * Footer
-   */
-  .blog-footer {
-    padding: 2.5rem 0;
-    color: #727272;
-    text-align: center;
-    background-color: #f9f9f9;
-    border-top: .05rem solid #e5e5e5;
-  }
-  .blog-footer p:last-child {
-    margin-bottom: 0;
-  }
+ 
   
