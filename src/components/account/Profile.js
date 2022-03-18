@@ -4,7 +4,7 @@ const Profile = () => {
 	let history = useHistory();
 
 	const handleSignout = () => {
-		history('/account/signin');
+		history.push('/account/signin');
 	};
 	
 	return (

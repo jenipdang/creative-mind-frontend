@@ -10,10 +10,10 @@ import {
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useGlobalContext } from '../data/context';
-import { Grid, Paper } from '@mui/material'
+import { FcPrivacy } from 'react-icons/fc'
 
 const SignIn = () => {
-	const { setUser } = useGlobalContext;
+	const { setUser } = useGlobalContext()
 	const [signIn, setSignIn] = useState({
 		username: "",
 		password: "",
@@ -48,7 +48,7 @@ const SignIn = () => {
 				if (r.status === 200) {
 					r.json().then((data) => {
 						setUser(data.user);
-						history.push('/suggestions'); //why after log in, it does not go to the suggestions forum
+						history.push('/account/profile'); //why after log in, it does not go to the suggestions forum
 					});
 				} else {
 					r.json().then((data) => alert(data.error));
@@ -67,6 +67,7 @@ const SignIn = () => {
 		<Container>
 			<Wrapper>
 				<Title>SIGN IN</Title>
+				<Title><FcPrivacy /></Title>
 				<Form onSubmit={handleSignin}>
 					<Input
 						type='text'

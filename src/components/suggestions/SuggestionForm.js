@@ -36,6 +36,7 @@ const SuggestionForm = () => {
 		const newSuggestion = {
 			title: suggestion.title,
 			description: suggestion.description,
+			like: 0,
 		};
 
 		fetch('http://localhost:9292/suggestions', {
@@ -45,13 +46,13 @@ const SuggestionForm = () => {
 			},
 			body: JSON.stringify(newSuggestion),
 		})
-    .then(() => 	history.push('/suggestions'))
+    .then(() => history.push('/suggestions'))
 	};
 
 	return (
 		<Container>
 			<Wrapper>
-				<Title>Share an Idea</Title>
+				<Title>SHARE AN IDEA</Title>
 				<Form onSubmit={handleSubmit}>
 					<Input
 						type='text'

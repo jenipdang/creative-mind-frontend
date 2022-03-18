@@ -5,7 +5,7 @@ import Navbar from './components/pages/Navbar'
 import SuggesstionCard from './components/suggestions/SuggesstionCard'
 import SuggesstionsContainer from './components/suggestions/SuggestionsContainer'
 import SuggestionForm from './components/suggestions/SuggestionForm';
-import UserProfile from './components/account/UserProfile';
+import Profile from './components/account/Profile';
 import SignIn from './components/account/SignIn';
 import SignUp from './components/account/SignUp';
 
@@ -25,7 +25,7 @@ function App() {
           <SuggesstionsContainer />
         </Route>
         <Route path="/account/profile">
-          <UserProfile />
+          <Profile />
         </Route>
         <Route path="/account/signin">
           <SignIn />
