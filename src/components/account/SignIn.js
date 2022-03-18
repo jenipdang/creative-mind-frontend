@@ -14,16 +14,17 @@ import { useGlobalContext } from '../data/context';
 const SignIn = () => {
 	const { setUser } = useGlobalContext;
 	const [signedIn, setSignedIn] = useState({
-		username: '',
-		password: '',
+		username: "",
+		password: "",
 	});
+
 	const [loading, setLoading] = useState(false);
 	const history = useHistory();
 
 	const handleChange = (e) => {
 		setSignedIn({
 			...signedIn,
-			[e.target.name]: e.target.value,
+			[e.target.name]: e.target.value
 		});
 	};
 
@@ -77,7 +78,7 @@ const SignIn = () => {
 					<Button
 						value={loading ? 'Loading...' : 'Login'}
 						disabled={loading}
-						onClick={handleSignin}
+						onSubmit={handleSignin}
 					>
 						LOGIN
 					</Button>

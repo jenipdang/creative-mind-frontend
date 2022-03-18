@@ -1,7 +1,25 @@
-const SuggesstionCard = () => {
-  return (
-    <div>SuggesstionCard</div>
-  )
-}
+import '../css/Suggestion.css';
 
-export default SuggesstionCard
+
+
+const SuggesstionCard = ({ suggestion }) => {
+
+  const { id, title, name, created_at, description } = suggestion
+
+	return (
+		<div>
+			<article className='blog-post' key={id}>
+				<h2 className='blog-post-title'>{title}</h2>
+				<p className='blog-post-meta'>
+					{created_at} by {name}
+				</p>
+
+				<p>
+					{description}
+				</p>
+			</article>
+		</div>
+	);
+};
+
+export default SuggesstionCard;
