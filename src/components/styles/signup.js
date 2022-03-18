@@ -21,8 +21,9 @@ const Title = styled.h1`
 `;
 
 const Select = styled.select`
-	font-size: 15px;
-	color: #005AA7;
+	flex: 1;
+	min-width: 40%;
+	padding: 10px;
 `;
 
 const Form = styled.form`
