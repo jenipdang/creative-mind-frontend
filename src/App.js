@@ -1,23 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import Home from './components/Home'
+import Navbar from './components/Navbar'
+import SuggestionsList from './components/SuggessionsList'
+import SuggesstionCard from './components/SuggesstionCard'
+import SuggesstionsContainer from './containers/SuggestionsContainer'
+import SuggestionForm from './components/SuggestionForm';
+import UserProfile from './account/UserProfile';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <Router>
+       <Navbar />
+       <Header slogan="Be Creative. Be You!" storename="Where ideas come together!" />
+       <Switch>
+        <Route path="/suggestions/new">
+          <SuggestionForm />
+        </Route>
+        <Route path="/suggestions/:id">
+          <SuggesstionCard />
+        </Route>
+        <Route path="/suggestions">
+          <SuggesstionsContainer />
+        </Route>
+        <Route path="/profile">
+          <UserProfile />
+        </Route>
+        <Route path="/suggestions/new">
+          <SuggestionForm />
+        </Route>
+       </Switch>
+     </Router>
     </div>
   );
 }
