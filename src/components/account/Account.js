@@ -12,7 +12,7 @@ const Account = () => {
 	}, [])
 
 	const fetchData = async () => {
-		await fetch('http://localhost:3001/users')
+		await fetch('http://localhost:9292/users')
 		.then (r => r.json())
 		.then (usersData => setUsers(usersData))
 		.catch((err) => {
@@ -29,7 +29,7 @@ const Account = () => {
 		<div>
 				<Signin users={users}/>
 				<Profile users={users}/>
-				<Register addUser={handleAddNewUser}/>
+				<SignUp addUser={handleAddNewUser}/>
 		</div>
 	);
 };

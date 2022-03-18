@@ -1,12 +1,15 @@
 import './App.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import Home from './components/Home'
-import Navbar from './components/Navbar'
-import SuggestionsList from './components/SuggessionsList'
-import SuggesstionCard from './components/SuggesstionCard'
-import SuggesstionsContainer from './containers/SuggestionsContainer'
-import SuggestionForm from './components/SuggestionForm';
-import UserProfile from './account/UserProfile';
+import Home from './components/pages/Home'
+import Header from './components/pages/Header'
+import Navbar from './components/pages/Navbar'
+import SuggestionsList from './components/suggestions/SuggessionsList'
+import SuggesstionCard from './components/suggestions/SuggesstionCard'
+import SuggesstionsContainer from './components/suggestions/SuggestionsContainer'
+import SuggestionForm from './components/suggestions/SuggestionForm';
+import UserProfile from './components/account/UserProfile';
+import SignIn from './components/account/SignIn';
+import SignUp from './components/account/SignUp';
 
 function App() {
   return (
@@ -24,11 +27,17 @@ function App() {
         <Route path="/suggestions">
           <SuggesstionsContainer />
         </Route>
-        <Route path="/profile">
+        <Route path="/account/profile">
           <UserProfile />
         </Route>
-        <Route path="/suggestions/new">
-          <SuggestionForm />
+        <Route path="/account/signin">
+          <SignIn />
+        </Route>
+        <Route path="/account/signup">
+          <SignUp />
+        </Route>
+        <Route path="/">
+          <Home />
         </Route>
        </Switch>
      </Router>

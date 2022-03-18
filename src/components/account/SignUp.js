@@ -124,7 +124,7 @@ const SignUp = () => {
 						onChange={(e) => setUsername(e.target.value)}
 						value={username}
 						lable="username"
-						placeholder="username"
+						placeholder="Username"
 						name="username"
 					/>
 					<Input
@@ -132,7 +132,7 @@ const SignUp = () => {
 						onChange={(e) => setEmail(e.target.value)}
 						value={email}
 						lable="email"
-						placeholder="email"
+						placeholder="Email"
 						name="email"
 					/>
 					<Input
@@ -140,7 +140,7 @@ const SignUp = () => {
 						onChange={(e) => setPassword(e.target.value)}
 						value={password}
 						lable="password"
-						placeholder="password"
+						placeholder="Password"
 						name="password"
 					/>
 					<Agreement>

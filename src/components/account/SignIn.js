@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const Container = styled.div`
 	width: 100vw;
@@ -50,14 +50,14 @@ const Link = styled.a`
 	cursor: pointer;
 `;
 
-const Signin = () => {
+const SignIn = () => {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 	const [loading, setLoading] = useState(false);
-	let navigate = useNavigate();
+	const history = useHistory();
 
 	const handleSignin = () => {
-		navigate('/account/profile');
+		history('/account/profile');
 		setLoading(true)
 	};
 
@@ -70,13 +70,13 @@ const Signin = () => {
 						type="text"
 						value={username}
 						onChange={(e) => setUsername(e.target.value)}
-						placeholder="username"
+						placeholder="Username"
 					/>
 					<Input
 						type="password"
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
-						placeholder="password"
+						placeholder="Password"
 					/>
 					<Button
 						value={loading ? 'Loading...' : 'Login'}
@@ -85,7 +85,7 @@ const Signin = () => {
 					>
 						LOGIN
 					</Button>
-					<Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
+					<Link>FORGOT YOUR PASSWORD?</Link>
 					<Link href="/account/signup">CREATE A NEW ACCOUNT</Link>
 				</Form>
 			</Wrapper>
@@ -93,4 +93,4 @@ const Signin = () => {
 	);
 };
 
-export default Signin;
+export default SignIn;
