@@ -20,6 +20,11 @@ const Title = styled.h1`
 	color: #005AA7;
 `;
 
+const Select = styled.select`
+	font-size: 15px;
+	color: #005AA7;
+`;
+
 const Form = styled.form`
 	display: flex;
 	flex-wrap: wrap;
@@ -48,4 +53,4 @@ const Button = styled.button`
 `;
 
 
-export {Container, Input, Button, Form, Title, Wrapper, Agreement}
+export {Container, Input, Button, Form, Title, Wrapper, Agreement, Select}

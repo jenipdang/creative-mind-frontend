@@ -2,7 +2,7 @@ import React from 'react'
 
 const Filter = ({filterResult}) => {
   return (
-    <div className='nav-scroller py-1 mb-2'>
+    <div className='nav-scroller sticky-top py-1 mb-2'>
 					<nav className='nav d-flex justify-content-between'>
 						<a className='p-2 link-secondary' onClick={() => filterResult('All')}>
 							All

@@ -6,13 +6,15 @@ import {
 	Button,
 	Container,
 	Wrapper,
-	Title,
+	Title
 } from '../styles/signin';
+import { Select } from '../styles/signup';
 
 const SuggestionForm = () => {
 	const [suggestion, setSuggestion] = useState({
 		title: '',
 		description: '',
+		category: ''
 	});
 
 	const history = useHistory();
@@ -63,6 +65,14 @@ const SuggestionForm = () => {
 						name='title'
 						required
 					/>
+					<Select className='category'>
+						<option value="Landscape">Landscape</option>
+  						<option value="Kitchen">Kitchen</option>
+  						<option value="Bedroom">Bedroom</option>
+  						<option value="Appliance">Appliances</option>
+  						<option value="Livingroom">Livingroom</option>
+  						<option value="Bathroom">Bathroom</option>
+					</Select>
 					<Input //how to make this into text area
 						type='text'
 						value={suggestion.description}
