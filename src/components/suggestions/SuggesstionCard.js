@@ -6,7 +6,6 @@ import { FcLike } from 'react-icons/fc'
 
 const SuggesstionCard = ({ suggestion }) => {
 	const [suggestionObj, setSuggestionObj] = useState(null)
-	// const [addlike, setAddLike] = useState(null)
 	const {id} = useParams()
 	useEffect(() => {
 		if (!suggestion) {
@@ -14,7 +13,6 @@ const SuggesstionCard = ({ suggestion }) => {
 			.then(r => r.json())
 			.then(suggestion => {
 				setSuggestionObj(suggestion)
-				// setAddLike(suggestion.like)
 			})
 		}
 	}, [suggestion, id])

@@ -37,13 +37,13 @@ const SuggestionsContainer = () => {
 		);
 	}
 
-	const filterResult = (title) => {
-		if (title === 'All') {
+	const filterResult = (category) => {
+		if (category === 'All') {
 			setSearchResult(suggestions);
 			return;
 		}
 		const result = suggestions.filter((currentData) => {
-			return currentData.title === title
+			return currentData.category === category
 		});
 		setSearchResult(result);
 	};

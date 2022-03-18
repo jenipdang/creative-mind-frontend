@@ -16,11 +16,14 @@ const Filter = ({filterResult}) => {
 						<a className='p-2 link-secondary' onClick={() => filterResult('Bedroom')}>
 							Bedroom
 						</a>
-						<a className='p-2 link-secondary' onClick={() => filterResult('Appliances')}>
-							Appliance
+						<a className='p-2 link-secondary' onClick={() => filterResult('Appliance')}>
+							Appliances
 						</a>
-						<a className='p-2 link-secondary' onClick={() => filterResult('Interior Design')}>
-							Interior Design
+						<a className='p-2 link-secondary' onClick={() => filterResult('Livingroom')}>
+							Livingroom
+						</a>
+						<a className='p-2 link-secondary' onClick={() => filterResult('Bathroom')}>
+							Bathroom
 						</a>
 					</nav>
 				</div>

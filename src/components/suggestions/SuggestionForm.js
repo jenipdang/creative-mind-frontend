@@ -36,6 +36,7 @@ const SuggestionForm = () => {
 		const newSuggestion = {
 			title: suggestion.title,
 			description: suggestion.description,
+			category: suggestion.category,
 			like: 0,
 		};
 
