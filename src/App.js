@@ -1,9 +1,7 @@
 import './App.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Home from './components/pages/Home'
-import Header from './components/pages/Header'
 import Navbar from './components/pages/Navbar'
-import SuggestionsList from './components/suggestions/SuggessionsList'
 import SuggesstionCard from './components/suggestions/SuggesstionCard'
 import SuggesstionsContainer from './components/suggestions/SuggestionsContainer'
 import SuggestionForm from './components/suggestions/SuggestionForm';
@@ -15,8 +13,7 @@ function App() {
   return (
     <div className="App">
      <Router>
-       <Navbar />
-       <Header slogan="Be Creative. Be You!" storename="Where ideas come together!" />
+       <Navbar storeName="Creative Minds" slogan="Be Creative...Be You." />
        <Switch>
         <Route path="/suggestions/new">
           <SuggestionForm />
