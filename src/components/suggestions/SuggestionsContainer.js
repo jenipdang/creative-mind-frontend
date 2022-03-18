@@ -37,14 +37,14 @@ const SuggestionsContainer = () => {
 
 	return (
 		<>
-			<div class='container'>
-				<header class='blog-header py-3'>
-					<div class='row flex-nowrap justify-content-between align-items-center'>
-						<div class='col-4 text-center'>
-							<a class='blog-header-logo text-dark'>Suggestions Forum</a>
+			<div className='container'>
+				<header className='blog-header py-3'>
+					<div className='row flex-nowrap justify-content-between align-items-center'>
+						<div className='col-4 text-center'>
+							<a className='blog-header-logo text-dark'>Suggestions Forum</a>
 						</div>
-						<div class='col-4 d-flex justify-content-end align-items-center'>
-							<a class='link-secondary' href='#' aria-label='Search'>
+						<div className='col-4 d-flex justify-content-end align-items-center'>
+							<a className='link-secondary' href='#' aria-label='Search'>
 								<svg
 									xmlns='http://www.w3.org/2000/svg'
 									width='20'
@@ -54,7 +54,7 @@ const SuggestionsContainer = () => {
 									stroke-linecap='round'
 									stroke-linejoin='round'
 									stroke-width='2'
-									class='mx-3'
+									className='mx-3'
 									role='img'
 									viewBox='0 0 24 24'
 								>
@@ -67,44 +67,44 @@ const SuggestionsContainer = () => {
 					</div>
 				</header>
 
-				<div class='nav-scroller py-1 mb-2'>
-					<nav class='nav d-flex justify-content-between'>
-						<a class='p-2 link-secondary' href='#'>
-							World
+				<div className='nav-scroller py-1 mb-2'>
+					<nav className='nav d-flex justify-content-between'>
+						<a className='p-2 link-secondary' href='#'>
+							Landscape
 						</a>
-						<a class='p-2 link-secondary' href='#'>
-							U.S.
+						<a className='p-2 link-secondary' href='#'>
+							Kitchen
 						</a>
-						<a class='p-2 link-secondary' href='#'>
-							Technology
+						<a className='p-2 link-secondary' href='#'>
+							Bedroom
 						</a>
-						<a class='p-2 link-secondary' href='#'>
-							Design
+						<a className='p-2 link-secondary' href='#'>
+							Appliance
 						</a>
-						<a class='p-2 link-secondary' href='#'>
-							Culture
+						<a className='p-2 link-secondary' href='#'>
+							Interior Design
 						</a>
-						<a class='p-2 link-secondary' href='#'>
+						{/* <a className='p-2 link-secondary' href='#'>
 							Business
 						</a>
-						<a class='p-2 link-secondary' href='#'>
+						<a className='p-2 link-secondary' href='#'>
 							Politics
 						</a>
-						<a class='p-2 link-secondary' href='#'>
+						<a className='p-2 link-secondary' href='#'>
 							Opinion
 						</a>
-						<a class='p-2 link-secondary' href='#'>
+						<a className='p-2 link-secondary' href='#'>
 							Science
 						</a>
-						<a class='p-2 link-secondary' href='#'>
+						<a className='p-2 link-secondary' href='#'>
 							Health
 						</a>
-						<a class='p-2 link-secondary' href='#'>
+						<a className='p-2 link-secondary' href='#'>
 							Style
 						</a>
-						<a class='p-2 link-secondary' href='#'>
+						<a className='p-2 link-secondary' href='#'>
 							Travel
-						</a>
+						</a> */}
 					</nav>
 				</div>
 			</div>
