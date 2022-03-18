@@ -30,6 +30,11 @@ const Navbar = ({storeName, slogan}) => {
 							</a>
 						</li>
 						<li className='nav-item'>
+							<a className='nav-link' href='/suggestions/new'>
+								New Suggestion
+							</a>
+						</li>
+						<li className='nav-item'>
 							<a className='nav-link'href='/account/signin'><FiLogIn /></a>
 						</li>
 						<li className='nav-item'>

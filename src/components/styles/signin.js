@@ -49,4 +49,9 @@ const Link = styled.a`
 	cursor: pointer;
 `;
 
-export {Link, Button, Input, Form, Title, Wrapper, Container}
+const TextArea = styled.text`
+	width: 90px;
+	heigth: 390px;
+	padding: 10px;
+`
+export {Link, Button, Input, Form, Title, Wrapper, Container, TextArea}

@@ -13,7 +13,7 @@ import { useGlobalContext } from '../data/context';
 
 const SignIn = () => {
 	const { setUser } = useGlobalContext;
-	const [signedIn, setSignedIn] = useState({
+	const [signIn, setSignIn] = useState({
 		username: "",
 		password: "",
 	});
@@ -22,8 +22,8 @@ const SignIn = () => {
 	const history = useHistory();
 
 	const handleChange = (e) => {
-		setSignedIn({
-			...signedIn,
+		setSignIn({
+			...signIn,
 			[e.target.name]: e.target.value
 		});
 	};
@@ -32,7 +32,7 @@ const SignIn = () => {
 		e.preventDefault();
 		setLoading(true)
 		if (
-			[signedIn.username, signedIn.password].some((val) => val.trim() === '')
+			[signIn.username, signIn.password].some((val) => val.trim() === '')
 		) {
 			alert(
 				'Please enter a valid username and password or click on forgot password to reset your login information.'
@@ -43,13 +43,13 @@ const SignIn = () => {
 			headers: {
 				'Content-Type': 'application/json',
 			},
-			body: JSON.stringify(signedIn),
+			body: JSON.stringify(signIn),
 		})
 			.then((r) => {
 				if (r.status === 200) {
 					r.json().then((data) => {
 						setUser(data.user);
-						history.push('/home');
+						history.push('/suggestions');
 					});
 				} else {
 					r.json().then((data) => alert(data.error));
@@ -65,15 +65,17 @@ const SignIn = () => {
 				<Form>
 					<Input
 						type='text'
-						value={signedIn.username}
+						value={signIn.username}
 						onChange={handleChange}
 						placeholder='Username'
+						name='username'
 					/>
 					<Input
 						type='password'
-						value={signedIn.password}
+						value={signIn.password}
 						onChange={handleChange}
 						placeholder='Password'
+						name='password'
 					/>
 					<Button
 						value={loading ? 'Loading...' : 'Login'}
