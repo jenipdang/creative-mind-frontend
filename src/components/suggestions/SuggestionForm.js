@@ -52,7 +52,7 @@ const SuggestionForm = () => {
 		<Container>
 			<Wrapper>
 				<Title>Share an Idea</Title>
-				<Form>
+				<Form onSubmit={handleSubmit}>
 					<Input
 						type='text'
 						value={suggestion.title}
@@ -69,7 +69,7 @@ const SuggestionForm = () => {
 						name='description'
 						required
 					/>
-					<Button onSubmit={handleSubmit}>SUMBIT</Button>
+					<Button type='submit'>SUMBIT</Button>
 				</Form>
 			</Wrapper>
 		</Container>

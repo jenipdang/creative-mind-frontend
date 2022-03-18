@@ -18,7 +18,6 @@ const SignIn = () => {
 		password: "",
 	});
 
-	const [loading, setLoading] = useState(false);
 	const history = useHistory();
 
 	const handleChange = (e) => {
@@ -30,7 +29,6 @@ const SignIn = () => {
 
 	const handleSignin = (e) => {
 		e.preventDefault();
-		setLoading(true)
 		if (
 			[signIn.username, signIn.password].some((val) => val.trim() === '')
 		) {
@@ -49,20 +47,25 @@ const SignIn = () => {
 				if (r.status === 200) {
 					r.json().then((data) => {
 						setUser(data.user);
-						history.push('/suggestions');
+						history.push('/suggestions'); //why after log in, it does not go to the suggestions forum
 					});
 				} else {
 					r.json().then((data) => alert(data.error));
 				}
 			})
 			.catch((error) => alert(error));
+
+		setSignIn({
+			username: "",
+			password: "",
+		})
 	};
 
 	return (
 		<Container>
 			<Wrapper>
 				<Title>SIGN IN</Title>
-				<Form>
+				<Form onSubmit={handleSignin}>
 					<Input
 						type='text'
 						value={signIn.username}
@@ -78,9 +81,7 @@ const SignIn = () => {
 						name='password'
 					/>
 					<Button
-						value={loading ? 'Loading...' : 'Login'}
-						disabled={loading}
-						onSubmit={handleSignin}
+						type='submit'
 					>
 						LOGIN
 					</Button>

@@ -84,27 +84,6 @@ const SuggestionsContainer = () => {
 						<a className='p-2 link-secondary' href='#'>
 							Interior Design
 						</a>
-						{/* <a className='p-2 link-secondary' href='#'>
-							Business
-						</a>
-						<a className='p-2 link-secondary' href='#'>
-							Politics
-						</a>
-						<a className='p-2 link-secondary' href='#'>
-							Opinion
-						</a>
-						<a className='p-2 link-secondary' href='#'>
-							Science
-						</a>
-						<a className='p-2 link-secondary' href='#'>
-							Health
-						</a>
-						<a className='p-2 link-secondary' href='#'>
-							Style
-						</a>
-						<a className='p-2 link-secondary' href='#'>
-							Travel
-						</a> */}
 					</nav>
 				</div>
 			</div>
