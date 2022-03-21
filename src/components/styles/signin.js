@@ -32,6 +32,7 @@ const Input = styled.input`
 	padding: 10px;
 `;
 
+
 const Button = styled.button`
 	width: 100%;
 	border: none;
@@ -50,9 +51,10 @@ const Link = styled.a`
 	cursor: pointer;
 `;
 
-const TextArea = styled.text`
-	width: 90px;
-	heigth: 390px;
+const TextArea = styled.textarea`
+	// heigth: 500px;
+	resize: none;
 	padding: 10px;
+	margin: 10px 0;
 `
 export {Link, Button, Input, Form, Title, Wrapper, Container, TextArea}

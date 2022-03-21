@@ -6,7 +6,8 @@ import {
 	Button,
 	Container,
 	Wrapper,
-	Title
+	Title,
+	TextArea
 } from '../styles/signin';
 import { Select } from '../styles/signup';
 
@@ -73,8 +74,8 @@ const SuggestionForm = () => {
   						<option value="Livingroom">Livingroom</option>
   						<option value="Bathroom">Bathroom</option>
 					</Select>
-					<Input //how to make this into text area
-						type='text'
+					<TextArea
+						row='6'
 						value={suggestion.description}
 						onChange={handleChange}
 						placeholder='Description'
