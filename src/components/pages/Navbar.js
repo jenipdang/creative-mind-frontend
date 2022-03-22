@@ -1,8 +1,10 @@
 import '../css/Navbar.css'
 import { FiLogIn } from 'react-icons/fi'
 import { RiUserAddLine } from 'react-icons/ri'
+import { useGlobalContext } from '../data/context';
 
 const Navbar = ({storeName, slogan}) => {
+	const { user } = useGlobalContext()
 	return (
 		<nav className='navbar sticky-top navbar-expand-lg navbar-light bg-light'>
 			<div className='container-fluid'>
@@ -29,17 +31,24 @@ const Navbar = ({storeName, slogan}) => {
 								Suggestions Forum
 							</a>
 						</li>
-						<li className='nav-item'>
+						{user? <li className='nav-item'>
 							<a className='nav-link' href='/suggestions/new'>
 								New Suggestion
 							</a>
-						</li>
+						</li> : null}
+						{user ? 
+							<li className='nav-item'>
+							<a className='nav-link' href='/account/profile'>
+								Profile
+							</a>
+						</li> : null }
 						<li className='nav-item'>
 							<a className='nav-link'href='/account/signin'><FiLogIn /></a>
 						</li>
-						<li className='nav-item'>
+						{!user ?
+							<li className='nav-item'>
 							<a className='nav-link' href='/account/signup'><RiUserAddLine /></a>
-						</li>
+						</li> : null}
 					</ul>
 				</div>
         <a className='logo' href='/'>

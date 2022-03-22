@@ -13,7 +13,7 @@ import { useGlobalContext } from '../data/context';
 import { FcPrivacy } from 'react-icons/fc'
 
 const SignIn = () => {
-	const { setUser } = useGlobalContext()
+	const { setUser, setMessage } = useGlobalContext()
 	const [signIn, setSignIn] = useState({
 		username: "",
 		password: "",
@@ -48,7 +48,8 @@ const SignIn = () => {
 				if (r.status === 200) {
 					r.json().then((data) => {
 						setUser(data.user);
-						history.push('/account/profile'); //why after log in, it does not go to the suggestions forum
+						setMessage({message: data.message, status: "success"})
+						history.push('/suggestions'); 
 					});
 				} else {
 					r.json().then((data) => alert(data.error));

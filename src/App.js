@@ -8,8 +8,26 @@ import SuggestionForm from './components/suggestions/SuggestionForm';
 import Profile from './components/account/Profile';
 import SignIn from './components/account/SignIn';
 import SignUp from './components/account/SignUp';
+import { useGlobalContext } from './components/data/context'
+import { useEffect } from 'react'
 
 function App() {
+    const { user, setUser } = useGlobalContext()
+
+    useEffect(() => {
+      fetch('http://localhost:9292/me')
+      .then((r) => {
+        if (r.ok) {
+          r.json().then((user) => {
+            setUser(user)
+          })
+        } else {
+          r.json().then((error) => console.log(error.error))
+        }
+      })
+      .catch(err => console.log(err))
+    }, [user, setUser])
+
   return (
     <div className="App">
      <Router>

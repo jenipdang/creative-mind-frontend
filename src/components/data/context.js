@@ -4,12 +4,15 @@ const DataContext = React.createContext();
 
 const DataProvider = ({ children }) => {
 	const [user, setUser] = useState(null);
+	const [message, setMessage] = useState(null)
 
 	return (
 		<DataContext.Provider
 			value={{
 				user,
-				setUser
+				setUser,
+				message,
+				setMessage
 			}}
 		>
 			{children}

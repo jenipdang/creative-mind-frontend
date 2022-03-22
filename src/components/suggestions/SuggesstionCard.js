@@ -29,7 +29,7 @@ const SuggesstionCard = ({ suggestion }) => {
 			},
 			body: JSON.stringify({like: finalSuggestion.like + 1})
 		})
-		.then(response => response.json())
+		.then(r => r.json())
 		.then(() => setSuggestionObj({...suggestionObj, like: suggestionObj.like + 1}))
 	}
 
