@@ -1,5 +1,6 @@
 import '../css/Navbar.css'
-import { FiLogIn } from 'react-icons/fi'
+// import { FaSignInAlt, FaSignOutAlt } from 'react-icons/fa'
+import { FaSignOutAlt } from 'react-icons/fa'
 import { RiUserAddLine } from 'react-icons/ri'
 import { useGlobalContext } from '../data/context';
 
@@ -31,7 +32,7 @@ const Navbar = ({storeName, slogan}) => {
 								Suggestions Forum
 							</a>
 						</li>
-						{user? <li className='nav-item'>
+						{user ? <li className='nav-item'>
 							<a className='nav-link' href='/suggestions/new'>
 								New Suggestion
 							</a>
@@ -42,19 +43,22 @@ const Navbar = ({storeName, slogan}) => {
 								Profile
 							</a>
 						</li> : null }
-						<li className='nav-item'>
-							<a className='nav-link'href='/account/signin'><FiLogIn /></a>
-						</li>
+						{/* {!user ? <li className='nav-item'>
+							<a className='nav-link'href='/account/signin'><FaSignInAlt /></a>
+						</li> : null} */}
+						{user ? <li className='nav-item'>
+							<a className='nav-link'href='/account/signout'><FaSignOutAlt /></a>
+						</li> : null}
 						{!user ?
 							<li className='nav-item'>
 							<a className='nav-link' href='/account/signup'><RiUserAddLine /></a>
 						</li> : null}
 					</ul>
 				</div>
-        <a className='logo' href='/'>
-					{storeName} || {slogan}
-				</a>
-			</div>
+        			<a className='logo' href='/'>
+						{storeName} || {slogan}
+					</a>
+				</div>
 		</nav>
 	);
 };

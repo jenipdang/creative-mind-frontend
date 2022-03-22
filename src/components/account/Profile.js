@@ -1,12 +1,20 @@
-import { useHistory } from 'react-router-dom';
+// import { useEffect} from 'react';
+// import { useHistory, useParams } from 'react-router-dom';
+// import { useGlobalContext } from '../data/context';
 
 const Profile = () => {
-	let history = useHistory();
-
-	const handleSignout = () => {
-		history.push('/account/signin');
-	};
+	// const { user } = useGlobalContext()
+	// const { id } = useParams()
+	// let history = useHistory();
 	
+	// useEffect(() => {
+	// 	if (user) {
+	// 		fetch(`http://localhost:9292/users/${id}`)
+	// 		.then(r => r.json())
+	// 		.then(data => data.json())
+	// 	}
+	// })
+
 	return (
 		<div className="container">
 			<div className="text ">
@@ -14,7 +22,6 @@ const Profile = () => {
 					Welcome !!
 				</h2>
 			</div>
-			<input className='btn btn-dark m-4' type="button" value="Signout" onClick={handleSignout} />
 		</div>
 	);
 };

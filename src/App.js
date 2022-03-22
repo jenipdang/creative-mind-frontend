@@ -1,37 +1,43 @@
 import './App.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Home from './components/pages/Home'
-import Navbar from './components/pages/Navbar'
+// import Navbar from './components/pages/Navbar'
+import Navbar1 from './components/pages/Navbar1'
 import SuggesstionCard from './components/suggestions/SuggesstionCard'
 import SuggesstionsContainer from './components/suggestions/SuggestionsContainer'
 import SuggestionForm from './components/suggestions/SuggestionForm';
 import Profile from './components/account/Profile';
 import SignIn from './components/account/SignIn';
 import SignUp from './components/account/SignUp';
-import { useGlobalContext } from './components/data/context'
-import { useEffect } from 'react'
+import SignOut from './components/account/SignOut';
+import Notification from './components/pages/Notification';
+
+// import { useGlobalContext } from './components/data/context'
+// import { useEffect } from 'react'
 
 function App() {
-    const { user, setUser } = useGlobalContext()
+    // const { user, setUser } = useGlobalContext()
 
-    useEffect(() => {
-      fetch('http://localhost:9292/me')
-      .then((r) => {
-        if (r.ok) {
-          r.json().then((user) => {
-            setUser(user)
-          })
-        } else {
-          r.json().then((error) => console.log(error.error))
-        }
-      })
-      .catch(err => console.log(err))
-    }, [user, setUser])
+    // useEffect(() => {
+    //   fetch('http://localhost:9292/me')
+    //   .then((r) => {
+    //     if (r.ok) {
+    //       r.json().then((user) => {
+    //         setUser(user)
+    //       })
+    //     } else {
+    //       r.json().then((error) => console.log(error.error))
+    //     }
+    //   })
+    //   .catch(err => console.log(err))
+    // }, [user, setUser])
 
   return (
     <div className="App">
      <Router>
-       <Navbar storeName="Creative Minds" slogan="Be Creative...Be You." />
+       {/* <Navbar storeName="Creative Minds" slogan="Be Creative...Be You." /> */}
+       <Navbar1 storeName="Creative Minds" slogan="Be Creative...Be You." />
+       <Notification />
        <Switch>
         <Route path="/suggestions/new">
           <SuggestionForm />
@@ -47,6 +53,9 @@ function App() {
         </Route>
         <Route path="/account/signin">
           <SignIn />
+        </Route>
+        <Route path="/account/signout">
+          <SignOut />
         </Route>
         <Route path="/account/signup">
           <SignUp />

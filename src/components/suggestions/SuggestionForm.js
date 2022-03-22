@@ -10,14 +10,17 @@ import {
 	TextArea
 } from '../styles/signin';
 import { Select } from '../styles/signup';
+import { useGlobalContext } from '../data/context';
 
 const SuggestionForm = () => {
+	const { user } = useGlobalContext()
+
 	const [suggestion, setSuggestion] = useState({
 		title: '',
 		description: '',
-		category: ''
+		category: '',
+		user_id: user
 	});
-
 	const history = useHistory();
 
 	const handleChange = (e) => {
@@ -41,6 +44,7 @@ const SuggestionForm = () => {
 			description: suggestion.description,
 			category: suggestion.category,
 			like: 0,
+			user_id: user?.name
 		};
 
 		fetch('http://localhost:9292/suggestions', {

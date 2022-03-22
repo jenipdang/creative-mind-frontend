@@ -3,6 +3,9 @@ import SuggestionsList from '../suggestions/SuggessionsList';
 import Loading from '../pages/Navbar';
 import Search from '../suggestions/Search'
 import Filter from '../suggestions/Filter';
+import SuggestionForm from './SuggestionForm';
+
+
 
 const SuggestionsContainer = () => {
 	const [loading, setLoading] = useState();
@@ -78,7 +81,7 @@ const SuggestionsContainer = () => {
 			<Filter filterResult={filterResult}/>
 			<SuggestionsList suggestions={searchResult} />
 		</div>
-	);
+	); 
 };
 
 export default SuggestionsContainer;
