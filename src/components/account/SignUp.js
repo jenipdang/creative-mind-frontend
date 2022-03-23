@@ -1,6 +1,7 @@
 import {Container, Wrapper, Title, Form, Input, Agreement, Button} from '../styles/signup';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useGlobalContext } from '../data/context';
 
 const SignUp = () => {
 	const history = useHistory()
@@ -10,6 +11,8 @@ const SignUp = () => {
 	const [username, setUsername] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+
+	const { setUser, setMessage } = useGlobalContext()
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -27,21 +30,31 @@ const SignUp = () => {
 
 		const newUser = { name, city, state, username, email, password };
 
-		fetch('http://localhost:9292/users', {
+		fetch('/users', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(newUser),
 		})
-			.catch((error) => {
-				console.err('Registration error', error);
-			});
+		.then((r) => {
+			if (r.status === 200) {
+				r.json().then((data) => {
+					debugger
+					setUser(data);
+					setMessage({message: "Successfully SignUp!!", status: "success"})
+					history.push('/suggestions'); 
+				});
+			} else {
+				r.json().then((data) => alert(data.message));
+			}
+		})
+		.catch((error) => alert(error));
 		setName('');
 		setCity('');
 		setState('');
 		setUsername('');
 		setEmail('');
 		setPassword('');
-		history.push('/account/profile')
+		history.push('/suggestions')
 
 	};
 

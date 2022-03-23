@@ -37,7 +37,7 @@ const SignIn = () => {
 				'Please enter a valid username and password or click on forgot password to reset your login information.'
 			);
 		}
-		fetch('http://localhost:9292/signin', {
+		fetch('/signin', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

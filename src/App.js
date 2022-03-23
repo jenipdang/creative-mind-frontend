@@ -17,11 +17,11 @@ function App() {
     const { user, setUser } = useGlobalContext()
 
     useEffect(() => {
-      fetch('http://localhost:9292/me')
+      fetch('/me')
       .then((r) => {
         if (r.ok) {
-          r.json().then((user) => {
-            setUser(user)
+          r.json().then((data) => {
+            setUser(data.user)
           })
         } else {
           r.json().then((error) => console.log(error.error))

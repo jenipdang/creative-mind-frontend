@@ -19,7 +19,6 @@ const SuggestionForm = () => {
 		title: '',
 		description: '',
 		category: '',
-		user_id: user
 	});
 	const history = useHistory();
 
@@ -43,11 +42,9 @@ const SuggestionForm = () => {
 			title: suggestion.title,
 			description: suggestion.description,
 			category: suggestion.category,
-			like: 0,
-			user_id: user?.name
 		};
 
-		fetch('http://localhost:9292/suggestions', {
+		fetch('/suggestions', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

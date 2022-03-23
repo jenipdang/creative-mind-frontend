@@ -16,9 +16,8 @@ const SuggestionsContainer = () => {
 		setLoading(true);
 
 		try {
-			const response = await fetch('http://localhost:9292/suggestions');
+			const response = await fetch('/suggestions');
 			const data = await response.json();
-			debugger
 			setLoading(false);
 			setSuggestions(data);
 			setSearchResult(data)
@@ -66,11 +65,6 @@ const SuggestionsContainer = () => {
         }
 	};
 
-	const handleDelete = (id) => {
-		const updatedSuggestions = suggestions.filter((suggestion) => suggestion.id !== id)
-		setSuggestions(updatedSuggestions)
-	}
-
 	const handleEdit = (updatedSuggestionObj) => {
 		const updatedSuggestions = suggestions.map((suggestion) => {
 			if (suggestion.id === updatedSuggestionObj.id) {
@@ -95,7 +89,7 @@ const SuggestionsContainer = () => {
 					</div>
 				</header>
 			<Filter filterResult={filterResult}/>
-			<SuggestionsList suggestions={searchResult} onDelete={handleDelete} onEdit={handleEdit} />
+			<SuggestionsList suggestions={searchResult} onEdit={handleEdit} />
 		</div>
 	); 
 };

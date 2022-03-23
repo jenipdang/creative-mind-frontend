@@ -9,7 +9,7 @@ const Profile = () => {
 	
 	useEffect(() => {
 		if (user) {
-			fetch(`http://localhost:9292/users/${id}`)
+			fetch(`/users/${id}`)
 			.then(r => r.json())
 			.then(userData => {
 				setUser(userData)

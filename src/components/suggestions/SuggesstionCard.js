@@ -7,7 +7,7 @@ import { FaTrash } from 'react-icons/fa'
 import { AiTwotoneEdit } from 'react-icons/ai'
 import EditSuggestion from './EditSuggestion';
 
-const SuggesstionCard = ({ suggestion, onDelete, onEdit }) => {
+const SuggesstionCard = ({ suggestion, onEdit }) => {
 	const [suggestionObj, setSuggestionObj] = useState(null);
 
 	const [isEditing, setIsEditing] = useState(false)
@@ -23,7 +23,7 @@ const SuggesstionCard = ({ suggestion, onDelete, onEdit }) => {
 	
 	useEffect(() => {
 		if (!suggestion) {
-			fetch(`http://localhost:9292/suggestions/${id}`)
+			fetch(`/suggestions/${id}`)
 				.then((r) => r.json())
 				.then((suggestion) => {
 					setSuggestionObj(suggestion);
@@ -35,7 +35,7 @@ const SuggesstionCard = ({ suggestion, onDelete, onEdit }) => {
 	if (!finalSuggestion) return <Loading />;
 
 	const handleDelete = () => {
-		fetch(`http://localhost:9292/suggestions/${id}`, {
+		fetch(`/suggestions/${id}`, {
 			method: "DELETE"
 		})
 		.then(() => history.push('/suggestions'))
@@ -52,7 +52,7 @@ const SuggesstionCard = ({ suggestion, onDelete, onEdit }) => {
 			<Card.Body>
 				<blockquote className='blockquote mb-0'>
 					{isEditing ? (
-					<EditSuggestion id={id} suggestion={suggestion} onEdit={handleUpdate} /> ) : (
+					<EditSuggestion id={id} suggestion={finalSuggestion.suggestion} onEdit={handleUpdate} /> ) : (
 					<p>
 						{' '}
 						{finalSuggestion.description}{' '}

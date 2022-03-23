@@ -8,7 +8,7 @@ const SignOut = () => {
   const history = useHistory()
 
   useEffect(() => {
-    fetch('http://localhost:9292/signout', {
+    fetch('/signout', {
         method: "DELETE"
     })
     .then(r => r.json())
