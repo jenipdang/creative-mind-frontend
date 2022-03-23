@@ -67,7 +67,7 @@ const SignIn = () => {
 	return (
 		<Container>
 			<Wrapper>
-				<Title>SIGN IN</Title>
+				<Title>WELCOME BACK</Title>
 				<Title><FcPrivacy /></Title>
 				<Form onSubmit={handleSignin}>
 					<Input

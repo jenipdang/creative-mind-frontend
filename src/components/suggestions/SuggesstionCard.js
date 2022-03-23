@@ -14,6 +14,7 @@ const SuggesstionCard = ({ suggestion, onDelete, onEdit }) => {
 	const history = useHistory()
 
 	const { id } = useParams();
+	
 	useEffect(() => {
 		if (!suggestion) {
 			fetch(`http://localhost:9292/suggestions/${id}`)
