@@ -1,5 +1,5 @@
 // import '../css/Suggestion.css';
-import { Link, useParams, useHistory } from 'react-router-dom';
+import { Link, useParams, useHistory, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Loading from '../pages/Loading';
 import { Card } from 'react-bootstrap';
@@ -14,10 +14,12 @@ const SuggesstionCard = ({ suggestion, onDelete, onEdit }) => {
 
 	const history = useHistory()
 
-	const { id } = useParams();
-	// const { id, created_at: createdAt } = useParams();
+	const location = useLocation()
 
-	// const dateStamp = new Date(createdAt).toLocaleDateString()
+	// const { id } = useParams();
+	const { id, created_at: createdAt } = useParams();
+
+	const dateStamp = new Date(createdAt).toLocaleDateString()
 	
 	useEffect(() => {
 		if (!suggestion) {
@@ -36,9 +38,7 @@ const SuggesstionCard = ({ suggestion, onDelete, onEdit }) => {
 		fetch(`http://localhost:9292/suggestions/${id}`, {
 			method: "DELETE"
 		})
-		onDelete(id)
-		history.push('/suggestions')
-
+		.then(() => history.push('/suggestions'))
 	}
 
 	const handleUpdate = (updatedSuggestion) => {
@@ -59,9 +59,9 @@ const SuggesstionCard = ({ suggestion, onDelete, onEdit }) => {
 					</p>)}
 					<footer className='blockquote-footer'>
 						{finalSuggestion.user?.username || "Anonymous"} - {finalSuggestion.user?.city}, {finalSuggestion.user?.state}
-						{/* <p>{dateStamp}</p> */}
+						<p>{dateStamp}</p>
 					</footer>
-					<div className='actions'>
+					{location.pathname !== "/suggestions" ? (<div className='actions'>
 						<button onClick={() => setIsEditing((isEditing) => !isEditing)} style={{border: "none", backgroundColor: "white"}}>
 							<span aria-label='edit'>
 							<AiTwotoneEdit />
@@ -72,7 +72,7 @@ const SuggesstionCard = ({ suggestion, onDelete, onEdit }) => {
 							<FaTrash />
 							</span>
 						</button>
-					</div>
+					</div>) : null }
 				</blockquote>
 			</Card.Body>
 		</Card>

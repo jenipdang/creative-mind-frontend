@@ -18,6 +18,7 @@ const SuggestionsContainer = () => {
 		try {
 			const response = await fetch('http://localhost:9292/suggestions');
 			const data = await response.json();
+			debugger
 			setLoading(false);
 			setSuggestions(data);
 			setSearchResult(data)
