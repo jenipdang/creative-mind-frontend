@@ -4,8 +4,7 @@ import SignUp from "../account/SignUp"
 const Home = () => {
 
   return <main>
-      <SignIn />
-      <SignUp />
+  
   </main>
 }
 

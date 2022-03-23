@@ -1,6 +1,6 @@
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import { useGlobalContext } from '../data/context';
-// import { FaSignInAlt } from 'react-icons/fa'
+import { FaSignInAlt } from 'react-icons/fa'
 
 const Navbar1 = ({ storeName, slogan }) => {
 	const { user, setUser } = useGlobalContext();
@@ -18,7 +18,7 @@ const Navbar1 = ({ storeName, slogan }) => {
 						navbarScroll
 					>
 						<Nav.Link href="/">Home</Nav.Link>
-						{/* <Nav.Link href='/account/signin'><FaSignInAlt  /></Nav.Link> */}
+						<Nav.Link href='/account/signin'><FaSignInAlt  /></Nav.Link>
 						{user ? <Nav.Link href='/suggestions'>Suggestions Forum</Nav.Link> : null}
 						{user ? <Nav.Link href='/suggestions/new'>New Suggestion</Nav.Link> : null}
 					</Nav>

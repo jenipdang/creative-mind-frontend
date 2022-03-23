@@ -3,7 +3,6 @@ import SuggestionsList from '../suggestions/SuggessionsList';
 import Loading from '../pages/Navbar';
 import Search from '../suggestions/Search'
 import Filter from '../suggestions/Filter';
-import SuggestionForm from './SuggestionForm';
 
 
 
@@ -66,12 +65,28 @@ const SuggestionsContainer = () => {
         }
 	};
 
+	const handleDelete = (id) => {
+		const updatedSuggestions = suggestions.filter((suggestion) => suggestion.id !== id)
+		setSuggestions(updatedSuggestions)
+	}
+
+	const handleEdit = (updatedSuggestionObj) => {
+		const updatedSuggestions = suggestions.map((suggestion) => {
+			if (suggestion.id === updatedSuggestionObj.id) {
+				return updatedSuggestionObj
+			} else {
+				return suggestion
+			}
+		})
+		setSuggestions(updatedSuggestions)
+	}
+
 	return (
 		<div className='container nav-sticky-top'>
 				<header className='blog-header py-3'>
 					<div className='row flex-nowrap justify-content-between align-items-center'>
 						<div className='col-4 text-center'>
-							<a className='blog-header-logo text-dark'>Suggestions Forum</a>
+							<h3>Suggestion Forums</h3>
 						</div>
 						<div className='col-4 d-flex justify-content-end align-items-center'>
 							<Search suggestions={suggestions} term={search} searchKeyword={searchHandler}/>
@@ -79,7 +94,7 @@ const SuggestionsContainer = () => {
 					</div>
 				</header>
 			<Filter filterResult={filterResult}/>
-			<SuggestionsList suggestions={searchResult} />
+			<SuggestionsList suggestions={searchResult} onDelete={handleDelete} onEdit={handleEdit} />
 		</div>
 	); 
 };
