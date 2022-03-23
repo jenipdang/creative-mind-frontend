@@ -5,6 +5,7 @@ import Loading from '../pages/Loading';
 import { Card } from 'react-bootstrap';
 import { FaTrash } from 'react-icons/fa'
 import { AiTwotoneEdit } from 'react-icons/ai'
+import EditSuggestion from './EditSuggestion';
 
 const SuggesstionCard = ({ suggestion, onDelete, onEdit }) => {
 	const [suggestionObj, setSuggestionObj] = useState(null);
@@ -14,6 +15,9 @@ const SuggesstionCard = ({ suggestion, onDelete, onEdit }) => {
 	const history = useHistory()
 
 	const { id } = useParams();
+	// const { id, created_at: createdAt } = useParams();
+
+	// const dateStamp = new Date(createdAt).toLocaleDateString()
 	
 	useEffect(() => {
 		if (!suggestion) {
@@ -47,20 +51,23 @@ const SuggesstionCard = ({ suggestion, onDelete, onEdit }) => {
 			<Card.Header as='h5'><Link style={{textDecoration: "none", color: "black"}} to={`/suggestions/${finalSuggestion.id}`}>{finalSuggestion.title}</Link></Card.Header>
 			<Card.Body>
 				<blockquote className='blockquote mb-0'>
+					{isEditing ? (
+					<EditSuggestion id={id} suggestion={suggestion} onEdit={handleUpdate} /> ) : (
 					<p>
 						{' '}
 						{finalSuggestion.description}{' '}
-					</p>
+					</p>)}
 					<footer className='blockquote-footer'>
 						{finalSuggestion.user?.username || "Anonymous"} - {finalSuggestion.user?.city}, {finalSuggestion.user?.state}
+						{/* <p>{dateStamp}</p> */}
 					</footer>
 					<div className='actions'>
-						<button onClick={handleUpdate} style={{border: "none"}}>
+						<button onClick={() => setIsEditing((isEditing) => !isEditing)} style={{border: "none", backgroundColor: "white"}}>
 							<span aria-label='edit'>
 							<AiTwotoneEdit />
 							</span>
 						</button>
-						<button onClick={handleDelete} style={{border: "none", padding: "20px"}}>
+						<button onClick={handleDelete} style={{border: "none", padding: "20px", backgroundColor: "white"}}>
 							<span aria-label='delete'>
 							<FaTrash />
 							</span>

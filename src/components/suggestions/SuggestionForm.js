@@ -61,7 +61,7 @@ const SuggestionForm = () => {
 		<Container>
 			<Wrapper>
 				<Title>SHARE AN IDEA</Title>
-				<Form onSubmit={handleSubmit}>
+				<Form className='new-suggestion' onSubmit={handleSubmit}>
 					<Input
 						type='text'
 						value={suggestion.title}
