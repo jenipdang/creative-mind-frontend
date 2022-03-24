@@ -4,13 +4,10 @@ import { useState, useEffect } from 'react';
 import Loading from '../pages/Loading';
 import { Card } from 'react-bootstrap';
 import { FaTrash } from 'react-icons/fa'
-import { AiTwotoneEdit } from 'react-icons/ai'
-import EditSuggestion from './EditSuggestion';
+
 
 const SuggesstionCard = ({ suggestion, onEdit }) => {
 	const [suggestionObj, setSuggestionObj] = useState(null);
-
-	// const [isEditing, setIsEditing] = useState(false)
 
 	const history = useHistory()
 

@@ -12,7 +12,6 @@ import Notification from './components/pages/Notification';
 import Missing from './components/pages/Missing';
 import { useGlobalContext } from './components/data/context'
 import { useEffect } from 'react'
-// import ProtectedRoute from './components/pages/ProtectedRoute';
 
 
 function App() {
