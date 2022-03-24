@@ -5,16 +5,16 @@ import Navbar1 from './components/pages/Navbar1'
 import SuggesstionCard from './components/suggestions/SuggesstionCard'
 import SuggesstionsContainer from './components/suggestions/SuggestionsContainer'
 import SuggestionForm from './components/suggestions/SuggestionForm';
-import Profile from './components/account/Profile';
 import SignIn from './components/account/SignIn';
 import SignUp from './components/account/SignUp';
 import SignOut from './components/account/SignOut';
 import Notification from './components/pages/Notification';
+import Missing from './components/pages/Missing';
 import { useGlobalContext } from './components/data/context'
 import { useEffect } from 'react'
 
 function App() {
-    const { user, setUser } = useGlobalContext()
+    const { setUser } = useGlobalContext()
 
     useEffect(() => {
       fetch("/me")
@@ -46,21 +46,23 @@ function App() {
         <Route path="/suggestions">
           <SuggesstionsContainer />
         </Route>
-        <Route path="/profile">
-          <Profile />
-        </Route>
         <Route path="/signin">
           <SignIn />
         </Route>
-        <Route path="/account/signout">
+        <Route path="/signout">
           <SignOut />
         </Route>
         <Route path="/signup">
           <SignUp />
         </Route>
-        <Route path="/">
+        <Route exact path="/">
           <Home />
         </Route>
+        <Route path="*" >
+          <Missing />
+        </Route>
+        {/* <Route render={() => <h1>404 PAGE NOT FOUND</h1>}>
+        {/* <Link to="/">BACK</Link> */}
        </Switch>
      </Router>
     </div>
