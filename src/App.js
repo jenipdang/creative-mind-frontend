@@ -8,11 +8,12 @@ import SuggestionForm from './components/suggestions/SuggestionForm';
 import SignIn from './components/account/SignIn';
 import SignUp from './components/account/SignUp';
 import SignOut from './components/account/SignOut';
+import Profile from './components/account/Profile';
 import Notification from './components/pages/Notification';
 import Missing from './components/pages/Missing';
 import { useGlobalContext } from './components/data/context'
 import { useEffect } from 'react'
-import {ProtectedRoute} from './components/pages/ProtectedRoute';
+import ProtectedRoute from './components/pages/ProtectedRoute';
 
 
 function App() {
@@ -40,14 +41,16 @@ function App() {
        <Navbar1 storeName="Creative Minds" slogan="Be Creative...Be You." />
        <Notification />
        <Switch>
-        <ProtectedRoute path="/suggestions/new">
-          <SuggestionForm />
-        </ProtectedRoute>
+        <Route path="/suggestions/new" element={<ProtectedRoute><SuggestionForm /></ProtectedRoute>}>
+        </Route>
         <ProtectedRoute path="/suggestions/:id">
           <SuggesstionCard />
         </ProtectedRoute>
         <ProtectedRoute path="/suggestions">
           <SuggesstionsContainer />
+        </ProtectedRoute>
+        <ProtectedRoute path="/profile">
+          <Profile />
         </ProtectedRoute>
         <Route path="/signin">
           <SignIn />

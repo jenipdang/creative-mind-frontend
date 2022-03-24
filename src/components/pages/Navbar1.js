@@ -21,6 +21,9 @@ const Navbar1 = ({ storeName, slogan }) => {
 					</Nav>
 					<Nav>
 						{user ? <NavDropdown title={user.username} id='navbarScrollingDropdown' style={{marginRight: '20px'}}>
+							<NavDropdown.Item href='/profile'>
+								Profile
+							</NavDropdown.Item> 
 							<NavDropdown.Item href='/signout'>
 								SignOut
 							</NavDropdown.Item> 

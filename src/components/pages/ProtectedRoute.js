@@ -1,13 +1,35 @@
-import { Redirect, useLocation } from 'react-router-dom'
-import { useGlobalContext } from '../data/context'
+import { Redirect, Route } from 'react-router-dom'
 
 
-export const ProtectedRoute = ({ children }) => {
-  const { user } = useGlobalContext()
-  const location = useLocation()
 
-  if (!user) {
-    return <Redirect to='/' state={{ path: location.pathname }} />
-  }
-  return children
+// export const ProtectedRoute = ({ children }) => {
+//   const { user } = useGlobalContext()
+//   // const location = useLocation()
+
+//   if (!user) {
+//     return <Redirect to='/' />
+//   }
+//   return children
+// }
+const ProtectedRoute = ({ children, isAuthenticated, ...rest }) => {
+  return (
+    <Route
+      {...rest}
+      render={
+        ({ location }) => (
+          isAuthenticated
+            ? (
+              children
+            ) : (
+              <Redirect
+                to={{
+                  pathname: '/',
+                  state: { from: location }
+                }}
+              />
+            ))
+      }
+    />
+  );
 }
+export default ProtectedRoute
