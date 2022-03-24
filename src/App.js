@@ -8,7 +8,6 @@ import SuggestionForm from './components/suggestions/SuggestionForm';
 import SignIn from './components/account/SignIn';
 import SignUp from './components/account/SignUp';
 import SignOut from './components/account/SignOut';
-import Profile from './components/account/Profile';
 import Notification from './components/pages/Notification';
 import Missing from './components/pages/Missing';
 import { useGlobalContext } from './components/data/context'
@@ -49,9 +48,6 @@ function App() {
         </Route>
         <Route path="/suggestions">
           <SuggesstionsContainer />
-        </Route>
-        <Route path="/profile">
-          <Profile />
         </Route>
         <Route path="/signin">
           <SignIn />
