@@ -5,8 +5,6 @@ import Search from '../suggestions/Search'
 import Filter from '../suggestions/Filter';
 
 
-
-
 const SuggestionsContainer = () => {
 	const [loading, setLoading] = useState();
 	const [suggestions, setSuggestions] = useState([]);

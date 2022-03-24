@@ -12,9 +12,12 @@ import Notification from './components/pages/Notification';
 import Missing from './components/pages/Missing';
 import { useGlobalContext } from './components/data/context'
 import { useEffect } from 'react'
+import {ProtectedRoute} from './components/pages/ProtectedRoute';
+
 
 function App() {
     const { setUser } = useGlobalContext()
+
 
     useEffect(() => {
       fetch("/me")
@@ -37,15 +40,15 @@ function App() {
        <Navbar1 storeName="Creative Minds" slogan="Be Creative...Be You." />
        <Notification />
        <Switch>
-        <Route path="/suggestions/new">
+        <ProtectedRoute path="/suggestions/new">
           <SuggestionForm />
-        </Route>
-        <Route path="/suggestions/:id">
+        </ProtectedRoute>
+        <ProtectedRoute path="/suggestions/:id">
           <SuggesstionCard />
-        </Route>
-        <Route path="/suggestions">
+        </ProtectedRoute>
+        <ProtectedRoute path="/suggestions">
           <SuggesstionsContainer />
-        </Route>
+        </ProtectedRoute>
         <Route path="/signin">
           <SignIn />
         </Route>
@@ -61,8 +64,7 @@ function App() {
         <Route path="*" >
           <Missing />
         </Route>
-        {/* <Route render={() => <h1>404 PAGE NOT FOUND</h1>}>
-        {/* <Link to="/">BACK</Link> */}
+
        </Switch>
      </Router>
     </div>

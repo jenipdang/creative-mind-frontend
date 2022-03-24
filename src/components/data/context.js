@@ -24,4 +24,5 @@ export const useGlobalContext = () => {
 	return useContext(DataContext);
 };
 
+
 export { DataProvider, DataContext };

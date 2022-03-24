@@ -8,7 +8,6 @@ const SuggessionsList = ({suggestions, onDelete, onEdit}) => {
 
   return (
     <div>
-      {/* {displaySuggestions.legnth > 0 ? displaySuggestions : "No Result Found"} */}
       {displaySuggestions}
     </div>
   )

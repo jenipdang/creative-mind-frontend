@@ -6,7 +6,7 @@ const Navbar1 = ({ storeName, slogan }) => {
 	return (
 		<Navbar bg='light' expand='lg'>
 			<Container fluid>
-				<Navbar.Brand>
+				<Navbar.Brand href='/'>
 					{storeName} || {slogan}
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls='navbarScroll' />
