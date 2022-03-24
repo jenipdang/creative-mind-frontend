@@ -63,7 +63,6 @@ const SignIn = () => {
 		})
 	};
 
-	const paperStyle={padding: 20, height: '73vh', width: 300, margin: "0, auto"}
 	return (
 		<Container>
 			<Wrapper>
@@ -90,7 +89,7 @@ const SignIn = () => {
 						SIGN IN
 					</Button>
 					<Link>FORGOT YOUR PASSWORD?</Link>
-					<Link href='/signup'>CREATE A NEW ACCOUNT</Link>
+					<Link href='/signup'>NEED AN ACCOUNT?</Link>
 				</Form>
 			</Wrapper>
 		</Container>

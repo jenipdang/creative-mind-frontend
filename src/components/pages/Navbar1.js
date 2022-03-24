@@ -1,13 +1,12 @@
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import { useGlobalContext } from '../data/context';
-// import { FaSignInAlt } from 'react-icons/fa'
 
 const Navbar1 = ({ storeName, slogan }) => {
 	const { user, setUser } = useGlobalContext();
 	return (
 		<Navbar bg='light' expand='lg'>
 			<Container fluid>
-				<Navbar.Brand href='/'>
+				<Navbar.Brand>
 					{storeName} || {slogan}
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls='navbarScroll' />
@@ -17,17 +16,11 @@ const Navbar1 = ({ storeName, slogan }) => {
 						style={{ maxHeight: '100px' }}
 						navbarScroll
 					>
-						{/* <Nav.Link href="/">Home</Nav.Link> */}
-						{/* <Nav.Link href='/account/signin'><FaSignInAlt  /></Nav.Link> */}
 						{user ? <Nav.Link href='/suggestions'>Suggestions Forum</Nav.Link> : null}
 						{user ? <Nav.Link href='/suggestions/new'>New Suggestion</Nav.Link> : null}
 					</Nav>
 					<Nav>
-						{user ? <NavDropdown title={user.username} id='navbarScrollingDropdown'>
-							<NavDropdown.Item href='/profile'>
-								Profile
-							</NavDropdown.Item>
-							<NavDropdown.Divider />
+						{user ? <NavDropdown title={user.username} id='navbarScrollingDropdown' style={{marginRight: '20px'}}>
 							<NavDropdown.Item href='/signout'>
 								SignOut
 							</NavDropdown.Item> 
