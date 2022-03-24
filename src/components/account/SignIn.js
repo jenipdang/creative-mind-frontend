@@ -52,7 +52,8 @@ const SignIn = () => {
 						history.push('/suggestions'); 
 					});
 				} else {
-					r.json().then((data) => alert(data.error));
+					// r.json().then((data) => alert(data.error));
+					r.json().then((data) => setMessage({message: data.message}));
 				}
 			})
 			.catch((error) => alert(error));

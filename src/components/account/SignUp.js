@@ -38,13 +38,12 @@ const SignUp = () => {
 		.then((r) => {
 			if (r.status === 200) {
 				r.json().then((data) => {
-					debugger
-					setUser(data);
+					setUser(data.user);
 					setMessage({message: "Successfully SignUp!!", status: "success"})
 					history.push('/suggestions'); 
 				});
 			} else {
-				r.json().then((data) => alert(data.message));
+				r.json().then((data) => setMessage({message: data.message}));
 			}
 		})
 		.catch((error) => alert(error));
