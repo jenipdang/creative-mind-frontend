@@ -1,5 +1,4 @@
 import SignIn from "../account/SignIn"
-import SignUp from "../account/SignUp"
 
 const Home = () => {
 
