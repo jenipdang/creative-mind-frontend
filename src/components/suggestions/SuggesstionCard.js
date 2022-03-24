@@ -10,16 +10,15 @@ import EditSuggestion from './EditSuggestion';
 const SuggesstionCard = ({ suggestion, onEdit }) => {
 	const [suggestionObj, setSuggestionObj] = useState(null);
 
-	const [isEditing, setIsEditing] = useState(false)
+	// const [isEditing, setIsEditing] = useState(false)
 
 	const history = useHistory()
 
 	const location = useLocation()
 
-	// const { id } = useParams();
-	const { id, created_at: createdAt } = useParams();
 
-	const dateStamp = new Date(createdAt).toLocaleDateString()
+	const { id } = useParams();
+
 	
 	useEffect(() => {
 		if (!suggestion) {
@@ -41,32 +40,35 @@ const SuggesstionCard = ({ suggestion, onEdit }) => {
 		.then(() => history.push('/suggestions'))
 	}
 
-	const handleUpdate = (updatedSuggestion) => {
-		setIsEditing(false)
-		onEdit(updatedSuggestion)
-	}
+	// const handleUpdate = (updatedSuggestion) => {
+	// 	// setIsEditing(false)
+	// 	onEdit(updatedSuggestion)
+	// }
 
 	return (
 		<Card border='secondary' style={{margin: "10px"}}>
 			<Card.Header as='h5'><Link style={{textDecoration: "none", color: "black"}} to={`/suggestions/${finalSuggestion.id}`}>{finalSuggestion.title}</Link></Card.Header>
 			<Card.Body>
 				<blockquote className='blockquote mb-0'>
-					{isEditing ? (
+					{/* {isEditing ? (
 					<EditSuggestion id={id} suggestion={finalSuggestion.suggestion} onEdit={handleUpdate} /> ) : (
 					<p>
 						{' '}
 						{finalSuggestion.description}{' '}
-					</p>)}
+					</p>)} */}
+					<p>
+						{' '}
+						{finalSuggestion.description}{' '}
+					</p>
 					<footer className='blockquote-footer'>
 						{finalSuggestion.user?.username || "Anonymous"} - {finalSuggestion.user?.city}, {finalSuggestion.user?.state}
-						<p>{dateStamp}</p>
 					</footer>
 					{location.pathname !== "/suggestions" ? (<div className='actions'>
-						<button onClick={() => setIsEditing((isEditing) => !isEditing)} style={{border: "none", backgroundColor: "white"}}>
+						{/* <button onClick={() => setIsEditing((isEditing) => !isEditing)} style={{border: "none", backgroundColor: "white"}}>
 							<span aria-label='edit'>
 							<AiTwotoneEdit />
 							</span>
-						</button>
+						</button> */}
 						<button onClick={handleDelete} style={{border: "none", padding: "20px", backgroundColor: "white"}}>
 							<span aria-label='delete'>
 							<FaTrash />

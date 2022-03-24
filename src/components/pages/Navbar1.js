@@ -24,11 +24,11 @@ const Navbar1 = ({ storeName, slogan }) => {
 					</Nav>
 					<Nav>
 						{user ? <NavDropdown title={user.username} id='navbarScrollingDropdown'>
-							<NavDropdown.Item href='/account/profile'>
+							<NavDropdown.Item href='/profile'>
 								Profile
 							</NavDropdown.Item>
 							<NavDropdown.Divider />
-							<NavDropdown.Item href='/account/signout'>
+							<NavDropdown.Item href='/signout'>
 								SignOut
 							</NavDropdown.Item> 
 						</NavDropdown> : null}

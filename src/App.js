@@ -17,7 +17,7 @@ function App() {
     const { user, setUser } = useGlobalContext()
 
     useEffect(() => {
-      fetch('/me')
+      fetch("/me")
       .then((r) => {
         if (r.ok) {
           r.json().then((data) => {
@@ -28,7 +28,7 @@ function App() {
         }
       })
       .catch(err => console.log(err))
-    }, [user, setUser])
+    }, [])
 
 
   return (
@@ -46,16 +46,16 @@ function App() {
         <Route path="/suggestions">
           <SuggesstionsContainer />
         </Route>
-        <Route path="/account/profile">
+        <Route path="/profile">
           <Profile />
         </Route>
-        <Route path="/account/signin">
+        <Route path="/signin">
           <SignIn />
         </Route>
         <Route path="/account/signout">
           <SignOut />
         </Route>
-        <Route path="/account/signup">
+        <Route path="/signup">
           <SignUp />
         </Route>
         <Route path="/">

@@ -6,11 +6,13 @@ import Filter from '../suggestions/Filter';
 
 
 
+
 const SuggestionsContainer = () => {
 	const [loading, setLoading] = useState();
 	const [suggestions, setSuggestions] = useState([]);
 	const [search, setSearch] = useState('')
 	const [searchResult, setSearchResult] = useState([])
+
 
 	const fetchSuggestions = async () => {
 		setLoading(true);

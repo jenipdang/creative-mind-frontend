@@ -15,7 +15,7 @@ const SignOut = () => {
     .then(data => {
         setUser(null)
         setMessage({message: data.message, status: "success"})
-        history.push('/account/signin')
+        history.push('/signin')
     })
     .catch(err => console.log(err))
   }, [history, setUser, setMessage])

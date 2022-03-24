@@ -42,6 +42,7 @@ const SuggestionForm = () => {
 			title: suggestion.title,
 			description: suggestion.description,
 			category: suggestion.category,
+			user_id: user.id
 		};
 
 		fetch('/suggestions', {

@@ -90,7 +90,7 @@ const SignIn = () => {
 						SIGN IN
 					</Button>
 					<Link>FORGOT YOUR PASSWORD?</Link>
-					<Link href='/account/signup'>CREATE A NEW ACCOUNT</Link>
+					<Link href='/signup'>CREATE A NEW ACCOUNT</Link>
 				</Form>
 			</Wrapper>
 		</Container>

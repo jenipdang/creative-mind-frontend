@@ -7,21 +7,13 @@ const Profile = () => {
 	const { id } = useParams()
 	const history = useHistory();
 	
-	useEffect(() => {
-		if (user) {
-			fetch(`/users/${id}`)
-			.then(r => r.json())
-			.then(userData => {
-				setUser(userData)
-			})
-		}
-	}, [user, id])
+
 
 	return (
 		<div className="container">
 			<div className="text ">
 				<h2 style={{ textAlign: 'center', marginBottom: '1rem' }}>
-					Welcome {user?.username}!!
+					Welcome {user.name}!!
 				</h2>
 			</div>
 		</div>
