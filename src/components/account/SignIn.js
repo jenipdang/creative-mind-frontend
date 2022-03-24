@@ -88,7 +88,6 @@ const SignIn = () => {
 					>
 						SIGN IN
 					</Button>
-					<Link>FORGOT YOUR PASSWORD?</Link>
 					<Link href='/signup'>NEED AN ACCOUNT?</Link>
 				</Form>
 			</Wrapper>
