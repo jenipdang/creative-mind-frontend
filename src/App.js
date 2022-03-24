@@ -13,7 +13,7 @@ import Notification from './components/pages/Notification';
 import Missing from './components/pages/Missing';
 import { useGlobalContext } from './components/data/context'
 import { useEffect } from 'react'
-import ProtectedRoute from './components/pages/ProtectedRoute';
+// import ProtectedRoute from './components/pages/ProtectedRoute';
 
 
 function App() {
@@ -41,17 +41,18 @@ function App() {
        <Navbar1 storeName="Creative Minds" slogan="Be Creative...Be You." />
        <Notification />
        <Switch>
-        <Route path="/suggestions/new" element={<ProtectedRoute><SuggestionForm /></ProtectedRoute>}>
+        <Route path="/suggestions/new">
+          <SuggestionForm />
         </Route>
-        <ProtectedRoute path="/suggestions/:id">
+        <Route path="/suggestions/:id">
           <SuggesstionCard />
-        </ProtectedRoute>
-        <ProtectedRoute path="/suggestions">
+        </Route>
+        <Route path="/suggestions">
           <SuggesstionsContainer />
-        </ProtectedRoute>
-        <ProtectedRoute path="/profile">
+        </Route>
+        <Route path="/profile">
           <Profile />
-        </ProtectedRoute>
+        </Route>
         <Route path="/signin">
           <SignIn />
         </Route>
