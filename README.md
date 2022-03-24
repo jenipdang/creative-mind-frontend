@@ -2,13 +2,19 @@
 
 
 ## Introduction
+Welcome to Creative-Minds, a private community for users from all around the world to can come together to share ideas and tips for anything related to home improvement: decoration, renovation, etc.. All posts in this application are made private so users can JUST be themselves among peers that just like them. 
 
+Application Features:
+- Sinatra Backend Server to store all data
+- Private Route setup to hide access from non-users
+- User Authtentication
+- Design: combine with React Bootstrap, Icons and styled-components
 
 This project is separated into two applications:
 
 - A React frontend, in the `creative-mind-client` directory
 - A Sinatra backend, in the `creative-mind-server` directory
-
+(https://github.com/jenipdang/creative-mind-backend)
 
 ## Frontend Setup
 
