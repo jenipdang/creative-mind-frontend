@@ -4,18 +4,20 @@ import { useState, useEffect } from 'react';
 import Loading from '../pages/Loading';
 import { Card } from 'react-bootstrap';
 import { FaTrash } from 'react-icons/fa'
+import { AiTwotoneEdit } from 'react-icons/ai'
+import EditSuggestion from './EditSuggestion'
 
 
 const SuggesstionCard = ({ suggestion, onEdit }) => {
 	const [suggestionObj, setSuggestionObj] = useState(null);
 
+	const { id } = useParams();
+
 	const history = useHistory()
 
 	const location = useLocation()
 
-
-	const { id } = useParams();
-
+	const [isEditing, setIsEditing] = useState(false)
 	
 	useEffect(() => {
 		if (!suggestion) {
@@ -37,35 +39,31 @@ const SuggesstionCard = ({ suggestion, onEdit }) => {
 		.then(() => history.push('/suggestions'))
 	}
 
-	// const handleUpdate = (updatedSuggestion) => {
-	// 	// setIsEditing(false)
-	// 	onEdit(updatedSuggestion)
-	// }
+	const handleUpdate = (updatedSuggestion) => {
+		setIsEditing(false)
+		onEdit(updatedSuggestion)
+	}
 
 	return (
 		<Card border='secondary' style={{margin: "10px"}}>
 			<Card.Header as='h5'><Link style={{textDecoration: "none", color: "black"}} to={`/suggestions/${finalSuggestion.id}`}>{finalSuggestion.title}</Link></Card.Header>
 			<Card.Body>
 				<blockquote className='blockquote mb-0'>
-					{/* {isEditing ? (
+					{isEditing ? (
 					<EditSuggestion id={id} suggestion={finalSuggestion.suggestion} onEdit={handleUpdate} /> ) : (
 					<p>
 						{' '}
 						{finalSuggestion.description}{' '}
-					</p>)} */}
-					<p>
-						{' '}
-						{finalSuggestion.description}{' '}
-					</p>
+					</p>)}
 					<footer className='blockquote-footer'>
 						{finalSuggestion.user?.username || "Anonymous"} - {finalSuggestion.user?.city}, {finalSuggestion.user?.state}
 					</footer>
 					{location.pathname !== "/suggestions" ? (<div className='actions'>
-						{/* <button onClick={() => setIsEditing((isEditing) => !isEditing)} style={{border: "none", backgroundColor: "white"}}>
+						<button onClick={() => setIsEditing((isEditing) => !isEditing)} style={{border: "none", backgroundColor: "white"}}>
 							<span aria-label='edit'>
 							<AiTwotoneEdit />
 							</span>
-						</button> */}
+						</button>
 						<button onClick={handleDelete} style={{border: "none", padding: "20px", backgroundColor: "white"}}>
 							<span aria-label='delete'>
 							<FaTrash />
