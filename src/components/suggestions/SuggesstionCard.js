@@ -9,7 +9,7 @@ import EditSuggestion from './EditSuggestion'
 import { useGlobalContext } from '../data/context';
 
 
-const SuggesstionCard = ({ suggestion, onEdit }) => {
+const SuggesstionCard = ({ suggestion}) => {
 	const [suggestionObj, setSuggestionObj] = useState(null);
 
 	const { id } = useParams();
@@ -44,7 +44,6 @@ const SuggesstionCard = ({ suggestion, onEdit }) => {
 
 	const handleUpdate = (id) => {
 		setIsEditing(true)
-		onEdit(id)
 	}
 
 	return (

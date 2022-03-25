@@ -1,9 +1,9 @@
 import SuggesstionCard from "./SuggesstionCard"
 
-const SuggessionsList = ({suggestions, onDelete, onEdit}) => {
+const SuggessionsList = ({suggestions}) => {
 
   const displaySuggestions = suggestions.map((suggestion) => (
-    <SuggesstionCard key={suggestion.id} suggestion={suggestion} onDelete={onDelete} onEdit={onEdit}/>
+    <SuggesstionCard key={suggestion.id} suggestion={suggestion} />
   ))
 
   return (

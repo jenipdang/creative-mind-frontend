@@ -6,9 +6,8 @@ import {
 	Container,
 	Wrapper,
 	TextArea,
-    // Input
 } from '../styles/signin';
-// import { Select } from '../styles/signup';
+
 
 
 const EditSugguestion = (suggestion, onEdit) => {
@@ -39,6 +38,7 @@ const EditSugguestion = (suggestion, onEdit) => {
 		})
     .then((r) => r.json())
     .then((updatedSuggestion) => onEdit(updatedSuggestion))
+	.catch((error) => alert(error))
     history.push('/suggestions')
 	}
 
