@@ -27,9 +27,7 @@ const EditSugguestion = (suggestion, onEdit) => {
     e.preventDefault();
 
     const newSuggestion = {
-        title: editSuggestion.title,
         description: editSuggestion.description,
-        category: editSuggestion.category,
     };
 
 		fetch(`/suggestions/${id}`, {
