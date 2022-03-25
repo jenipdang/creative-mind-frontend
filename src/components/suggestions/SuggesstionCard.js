@@ -6,12 +6,15 @@ import { Card } from 'react-bootstrap';
 import { FaTrash } from 'react-icons/fa'
 import { AiTwotoneEdit } from 'react-icons/ai'
 import EditSuggestion from './EditSuggestion'
+import { useGlobalContext } from '../data/context';
 
 
 const SuggesstionCard = ({ suggestion, onEdit }) => {
 	const [suggestionObj, setSuggestionObj] = useState(null);
 
 	const { id } = useParams();
+	
+	const { user } = useGlobalContext()
 
 	const history = useHistory()
 
@@ -39,9 +42,9 @@ const SuggesstionCard = ({ suggestion, onEdit }) => {
 		.then(() => history.push('/suggestions'))
 	}
 
-	const handleUpdate = (updatedSuggestion) => {
-		setIsEditing(false)
-		onEdit(updatedSuggestion)
+	const handleUpdate = (id) => {
+		setIsEditing(true)
+		onEdit(id)
 	}
 
 	return (
@@ -58,7 +61,7 @@ const SuggesstionCard = ({ suggestion, onEdit }) => {
 					<footer className='blockquote-footer'>
 						{finalSuggestion.user?.username || "Anonymous"} - {finalSuggestion.user?.city}, {finalSuggestion.user?.state}
 					</footer>
-					{location.pathname !== "/suggestions" ? (<div className='actions'>
+				{location.pathname !== "/suggestions" ? (<div className='actions'>
 						<button onClick={() => setIsEditing((isEditing) => !isEditing)} style={{border: "none", backgroundColor: "white"}}>
 							<span aria-label='edit'>
 							<AiTwotoneEdit />

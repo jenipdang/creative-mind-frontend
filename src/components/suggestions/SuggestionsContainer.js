@@ -66,17 +66,6 @@ const SuggestionsContainer = () => {
         }
 	};
 
-	const handleEdit = (updatedSuggestionObj) => {
-		const updatedSuggestions = suggestions.map((suggestion) => {
-			if (suggestion.id === updatedSuggestionObj.id) {
-				return updatedSuggestionObj
-			} else {
-				return suggestion
-			}
-		})
-		setSuggestions(updatedSuggestions)
-	}
-
 	return (
 		<div className='container '>
 				<header className='blog-header py-3'>
@@ -90,7 +79,7 @@ const SuggestionsContainer = () => {
 					</div>
 				</header>
 			<Filter filterResult={filterResult}/>
-			<SuggestionsList suggestions={searchResult} onEdit={handleEdit} />
+			<SuggestionsList suggestions={searchResult} />
 		</div>
 	); 
 };
