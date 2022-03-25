@@ -40,3 +40,13 @@ interact with the application to get a sense of its features.
 
 In another terminal, `cd` into the `creative-mind-server` directory, and run
 `bundle install` to install the dependencies.
+Next, run this in a new terminal:
+
+```console
+$ shotgun -p 9292
+```
+
+or 
+
+```console
+$ rack
