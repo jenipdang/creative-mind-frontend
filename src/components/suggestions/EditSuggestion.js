@@ -46,22 +46,6 @@ const EditSugguestion = (suggestion, onEdit) => {
 		<Container>
 			<Wrapper>
 				<Form className='edit-suggestion' onSubmit={handleSubmit}>
-					{/* <Input
-						type='text'
-						value={editSuggestion.title}
-						onChange={handleChange}
-						placeholder='Title'
-						name='title'
-						required
-					/> */}
-					{/* <Select className='category'>
-						<option value="Landscape">Landscape</option>
-  						<option value="Kitchen">Kitchen</option>
-  						<option value="Bedroom">Bedroom</option>
-  						<option value="Appliance">Appliances</option>
-  						<option value="Livingroom">Livingroom</option>
-  						<option value="Bathroom">Bathroom</option>
-					</Select> */}
 					<TextArea
 						row='6'
 						value={editSuggestion.description}
