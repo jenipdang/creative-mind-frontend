@@ -24,13 +24,11 @@ const SuggestionCard = ({ suggestion }) => {
 				.then((r) => r.json())
 				.then((suggestion) => {
 					setSuggestionObj(suggestion);
-					// console.log(suggestion)
 				});
 		}
 	}, [suggestion, id]);
 
 	const finalSuggestion = suggestion ? suggestion : suggestionObj;
-	// console.log(finalSuggestion)
 	if (!finalSuggestion) return <Loading />;
 
 	const handleDelete = () => {
@@ -40,9 +38,6 @@ const SuggestionCard = ({ suggestion }) => {
 		.then(() => history.push('/suggestions'))
 	}
 
-	// const handleUpdate = () => {
-	// 	setIsEditing(true)
-	// }
 
 	return (
 		<Card border='secondary' style={{margin: "10px"}}>
@@ -50,7 +45,7 @@ const SuggestionCard = ({ suggestion }) => {
 			<Card.Body>
 				<blockquote className='blockquote mb-0'>
 					{isEditing ? (
-					<EditSuggestion id={id} suggestion={finalSuggestion.suggestion} setIsEditing={setIsEditing}/> ) : (
+					<EditSuggestion id={id} suggestion={finalSuggestion} setIsEditing={setIsEditing}/> ) : (
 					<p>
 						{' '}
 						{finalSuggestion.description}{' '}

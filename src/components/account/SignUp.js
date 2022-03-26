@@ -38,9 +38,8 @@ const SignUp = () => {
 		.then((r) => {
 			if (r.status === 200) {
 				r.json().then((data) => {
-					setUser(data.user);
+					setUser(data.username);
 					setMessage({message: "Successfully SignUp!!", status: "success"})
-					history.push('/suggestions'); 
 				});
 			} else {
 				r.json().then((data) => setMessage({message: data.message}));
@@ -53,8 +52,7 @@ const SignUp = () => {
 		setUsername('');
 		setEmail('');
 		setPassword('');
-		history.push('/suggestions')
-
+		history.push('/suggestions'); 
 	};
 
 	return (

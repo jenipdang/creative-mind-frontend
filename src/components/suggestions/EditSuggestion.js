@@ -11,7 +11,7 @@ import {
 
 
 const EditSuggestion = (suggestion, setIsEditing) => {
-  const [editSuggestion, setEditSuggestion] = useState(suggestion)
+  const [editSuggestion, setEditSuggestion] = useState(suggestion.suggestion)
     const { id } = useParams()
 	const history = useHistory();
 

@@ -63,7 +63,6 @@ function App() {
         <Route path="*" >
           <Missing />
         </Route>
-
        </Switch>
      </Router>
     </div>
