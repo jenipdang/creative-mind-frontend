@@ -9,17 +9,13 @@ import EditSuggestion from './EditSuggestion'
 import { useGlobalContext } from '../data/context';
 
 
-const SuggesstionCard = ({ suggestion}) => {
+const SuggestionCard = ({ suggestion }) => {
 	const [suggestionObj, setSuggestionObj] = useState(null);
 
 	const { id } = useParams();
-	
 	const { user } = useGlobalContext()
-
 	const history = useHistory()
-
 	const location = useLocation()
-
 	const [isEditing, setIsEditing] = useState(false)
 	
 	useEffect(() => {
@@ -28,11 +24,13 @@ const SuggesstionCard = ({ suggestion}) => {
 				.then((r) => r.json())
 				.then((suggestion) => {
 					setSuggestionObj(suggestion);
+					// console.log(suggestion)
 				});
 		}
 	}, [suggestion, id]);
 
 	const finalSuggestion = suggestion ? suggestion : suggestionObj;
+	// console.log(finalSuggestion)
 	if (!finalSuggestion) return <Loading />;
 
 	const handleDelete = () => {
@@ -42,9 +40,9 @@ const SuggesstionCard = ({ suggestion}) => {
 		.then(() => history.push('/suggestions'))
 	}
 
-	const handleUpdate = (id) => {
-		setIsEditing(true)
-	}
+	// const handleUpdate = () => {
+	// 	setIsEditing(true)
+	// }
 
 	return (
 		<Card border='secondary' style={{margin: "10px"}}>
@@ -52,7 +50,7 @@ const SuggesstionCard = ({ suggestion}) => {
 			<Card.Body>
 				<blockquote className='blockquote mb-0'>
 					{isEditing ? (
-					<EditSuggestion id={id} suggestion={finalSuggestion.suggestion} onEdit={handleUpdate} /> ) : (
+					<EditSuggestion id={id} suggestion={finalSuggestion.suggestion} setIsEditing={setIsEditing}/> ) : (
 					<p>
 						{' '}
 						{finalSuggestion.description}{' '}
@@ -78,4 +76,4 @@ const SuggesstionCard = ({ suggestion}) => {
 	);
 };
 
-export default SuggesstionCard;
+export default SuggestionCard;

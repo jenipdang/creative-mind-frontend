@@ -2,8 +2,8 @@ import './App.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Home from './components/pages/Home'
 import Navbar1 from './components/pages/Navbar1'
-import SuggesstionCard from './components/suggestions/SuggesstionCard'
-import SuggesstionsContainer from './components/suggestions/SuggestionsContainer'
+import SuggestionCard from './components/suggestions/SuggestionCard'
+import SuggestionsContainer from './components/suggestions/SuggestionsContainer'
 import SuggestionForm from './components/suggestions/SuggestionForm';
 import SignIn from './components/account/SignIn';
 import SignUp from './components/account/SignUp';
@@ -43,10 +43,10 @@ function App() {
           <SuggestionForm />
         </Route>
         <Route path="/suggestions/:id">
-          <SuggesstionCard />
+          <SuggestionCard />
         </Route>
         <Route path="/suggestions">
-          <SuggesstionsContainer />
+          <SuggestionsContainer />
         </Route>
         <Route path="/signin">
           <SignIn />

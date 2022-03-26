@@ -10,7 +10,7 @@ import {
 
 
 
-const EditSugguestion = (suggestion, onEdit) => {
+const EditSuggestion = (suggestion, setIsEditing) => {
   const [editSuggestion, setEditSuggestion] = useState(suggestion)
     const { id } = useParams()
 	const history = useHistory();
@@ -21,13 +21,16 @@ const EditSugguestion = (suggestion, onEdit) => {
 			[e.target.name]:  e.target.value
 		})
 	}
+	function handleUpdate() {
+		setIsEditing(true)
+	}
+
+	const newSuggestion = {
+		description: editSuggestion.description,
+	};
 
 	const handleSubmit = (e) => {
     e.preventDefault();
-
-    const newSuggestion = {
-        description: editSuggestion.description,
-    };
 
 		fetch(`/suggestions/${id}`, {
 			method: 'PATCH',
@@ -36,11 +39,16 @@ const EditSugguestion = (suggestion, onEdit) => {
 			},
 			body: JSON.stringify(newSuggestion),
 		})
-    .then((r) => r.json())
-    .then((updatedSuggestion) => onEdit(updatedSuggestion))
-	.catch((error) => alert(error))
-    history.push('/suggestions')
+    	.then((r) => r.json())
+    	.then((updatedSuggestion) => {
+			console.log(handleUpdate)
+			handleUpdate(updatedSuggestion)
+		})
+		.catch((error) => console.log(error))
+    	history.push('/suggestions')
 	}
+
+	console.log(editSuggestion)
 
 	return (
 		<Container>
@@ -50,7 +58,7 @@ const EditSugguestion = (suggestion, onEdit) => {
 						row='6'
 						value={editSuggestion.description}
 						onChange={handleChange}
-						placeholder='Description'
+						placeholder={editSuggestion.description}
 						name='description'
 						required
 					/>
@@ -61,4 +69,4 @@ const EditSugguestion = (suggestion, onEdit) => {
 	);
 };
 
-export default EditSugguestion;
+export default EditSuggestion;

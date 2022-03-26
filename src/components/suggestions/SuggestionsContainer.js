@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import SuggestionsList from '../suggestions/SuggessionsList';
+import SuggestionsList from './SuggestionsList';
 import Loading from '../pages/Loading';
 import Search from '../suggestions/Search'
 import Filter from '../suggestions/Filter';
