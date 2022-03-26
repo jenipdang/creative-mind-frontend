@@ -38,14 +38,17 @@ const SuggestionCard = ({ suggestion }) => {
 		.then(() => history.push('/suggestions'))
 	}
 
-
+	const handleUpdate = () => {
+		setIsEditing(true)
+	}
+	
 	return (
 		<Card border='secondary' style={{margin: "10px"}}>
 			<Card.Header as='h5'><Link style={{textDecoration: "none", color: "black"}} to={`/suggestions/${finalSuggestion.id}`}>{finalSuggestion.title}</Link></Card.Header>
 			<Card.Body>
 				<blockquote className='blockquote mb-0'>
 					{isEditing ? (
-					<EditSuggestion id={id} suggestion={finalSuggestion} setIsEditing={setIsEditing}/> ) : (
+					<EditSuggestion id={id} suggestion={finalSuggestion} onEdit={handleUpdate}/> ) : (
 					<p>
 						{' '}
 						{finalSuggestion.description}{' '}

@@ -10,8 +10,8 @@ import {
 
 
 
-const EditSuggestion = (suggestion, setIsEditing) => {
-  const [editSuggestion, setEditSuggestion] = useState(suggestion.suggestion)
+const EditSuggestion = ({suggestion, onEdit}) => {
+  const [editSuggestion, setEditSuggestion] = useState(suggestion)
     const { id } = useParams()
 	const history = useHistory();
 
@@ -21,9 +21,7 @@ const EditSuggestion = (suggestion, setIsEditing) => {
 			[e.target.name]:  e.target.value
 		})
 	}
-	function handleUpdate() {
-		setIsEditing(true)
-	}
+	
 
 	const newSuggestion = {
 		description: editSuggestion.description,
@@ -41,14 +39,11 @@ const EditSuggestion = (suggestion, setIsEditing) => {
 		})
     	.then((r) => r.json())
     	.then((updatedSuggestion) => {
-			console.log(handleUpdate)
-			handleUpdate(updatedSuggestion)
+			onEdit(updatedSuggestion)
 		})
 		.catch((error) => console.log(error))
     	history.push('/suggestions')
 	}
-
-	console.log(editSuggestion)
 
 	return (
 		<Container>
