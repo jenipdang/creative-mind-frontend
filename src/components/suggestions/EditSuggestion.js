@@ -7,6 +7,7 @@ import {
 	Wrapper,
 	TextArea,
 } from '../styles/signin';
+import { useGlobalContext } from '../data/context';
 
 
 
@@ -14,6 +15,7 @@ const EditSuggestion = ({suggestion, onEdit}) => {
   const [editSuggestion, setEditSuggestion] = useState(suggestion)
     const { id } = useParams()
 	const history = useHistory();
+	const { setMessage } = useGlobalContext()
 
 	const handleChange = (e) => {
 		setEditSuggestion({
@@ -40,6 +42,7 @@ const EditSuggestion = ({suggestion, onEdit}) => {
     	.then((r) => r.json())
     	.then((updatedSuggestion) => {
 			onEdit(updatedSuggestion)
+			setMessage({message: "Successfully Edit", status: "success"})
 		})
 		.catch((error) => console.log(error))
     	history.push('/suggestions')
