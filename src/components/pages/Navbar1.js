@@ -2,7 +2,7 @@ import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import { useGlobalContext } from '../data/context';
 
 const Navbar1 = ({ storeName, slogan }) => {
-	const { user, setUser } = useGlobalContext();
+	const { user } = useGlobalContext();
 	return (
 		<Navbar bg='light' expand='lg'>
 			<Container fluid>

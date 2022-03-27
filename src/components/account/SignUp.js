@@ -38,7 +38,6 @@ const SignUp = () => {
 		.then((r) => {
 			if (r.status === 200) {
 				r.json().then((data) => {
-					console.log(data)
 					setUser(data);
 					setMessage({message: "Successfully SignUp!!", status: "success"})
 				});

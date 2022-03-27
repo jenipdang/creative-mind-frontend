@@ -8,9 +8,9 @@ import { AiTwotoneEdit } from 'react-icons/ai'
 import EditSuggestion from './EditSuggestion'
 
 
+
 const SuggestionCard = ({ suggestion }) => {
 	const [suggestionObj, setSuggestionObj] = useState(null);
-
 	const { id } = useParams();
 	const history = useHistory()
 	const location = useLocation()

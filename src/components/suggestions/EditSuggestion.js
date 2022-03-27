@@ -10,7 +10,6 @@ import {
 import { useGlobalContext } from '../data/context';
 
 
-
 const EditSuggestion = ({suggestion, onEdit}) => {
   const [editSuggestion, setEditSuggestion] = useState(suggestion)
     const { id } = useParams()
