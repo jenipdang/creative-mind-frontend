@@ -6,14 +6,12 @@ import { Card } from 'react-bootstrap';
 import { FaTrash } from 'react-icons/fa'
 import { AiTwotoneEdit } from 'react-icons/ai'
 import EditSuggestion from './EditSuggestion'
-import { useGlobalContext } from '../data/context';
 
 
 const SuggestionCard = ({ suggestion }) => {
 	const [suggestionObj, setSuggestionObj] = useState(null);
 
 	const { id } = useParams();
-	const { user } = useGlobalContext()
 	const history = useHistory()
 	const location = useLocation()
 	const [isEditing, setIsEditing] = useState(false)
