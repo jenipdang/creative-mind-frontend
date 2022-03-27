@@ -56,7 +56,7 @@ const SuggestionCard = ({ suggestion }) => {
 					<footer className='blockquote-footer'>
 						{finalSuggestion.user?.username || "Anonymous"} - {finalSuggestion.user?.city}, {finalSuggestion.user?.state}
 					</footer>
-				{location.pathname !== "/suggestions" ? (<div className='actions'>
+				{!isEditing ? (<>{location.pathname !== "/suggestions" ? (<div className='actions'>
 						<button onClick={() => setIsEditing((isEditing) => !isEditing)} style={{border: "none", backgroundColor: "white"}}>
 							<span aria-label='edit'>
 							<AiTwotoneEdit />
@@ -67,7 +67,7 @@ const SuggestionCard = ({ suggestion }) => {
 							<FaTrash />
 							</span>
 						</button>
-					</div>) : null }
+					</div>) : null }</>) : null}
 				</blockquote>
 			</Card.Body>
 		</Card>
