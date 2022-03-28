@@ -8,7 +8,6 @@ import { AiTwotoneEdit } from 'react-icons/ai'
 import EditSuggestion from './EditSuggestion'
 
 
-
 const SuggestionCard = ({ suggestion }) => {
 	const [suggestionObj, setSuggestionObj] = useState(null);
 	const { id } = useParams();
@@ -28,6 +27,7 @@ const SuggestionCard = ({ suggestion }) => {
 
 	const finalSuggestion = suggestion ? suggestion : suggestionObj;
 	if (!finalSuggestion) return <Loading />;
+
 
 	const handleDelete = () => {
 		fetch(`/suggestions/${id}`, {
